@@ -49,10 +49,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/wishes")
-      .then((res) => res.json())
-      .then((data) => setWishes(data))
-      .catch((err) => console.error(err));
+    const saved = localStorage.getItem("wedding-wishes");
+    if (saved) {
+      setWishes(JSON.parse(saved));
+    }
   }, []);
 
   const handleOpenInvitation = () => {
@@ -77,23 +77,19 @@ export default function Home() {
   const submitWish = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    try {
-      const res = await fetch("/api/wishes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, attendance, message }),
-      });
-      if (res.ok) {
-        const { wish } = await res.json();
-        setWishes([wish, ...wishes]);
-        setName("");
-        setMessage("");
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
+    
+    // Simulate slight network delay for effect
+    setTimeout(() => {
+      const newWish = { id: Date.now().toString(), name, attendance, message };
+      const updatedWishes = [newWish, ...wishes];
+      setWishes(updatedWishes);
+      localStorage.setItem("wedding-wishes", JSON.stringify(updatedWishes));
+      
+      setName("");
+      setAttendance("hadir");
+      setMessage("");
       setIsSubmitting(false);
-    }
+    }, 500);
   };
 
   const scrollTo = (id: string) => {
