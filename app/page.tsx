@@ -210,12 +210,18 @@ export default function Home() {
             
             {/* Dedicated Background Layer for Mobile Content */}
             {isOpened && (
-              <div className="absolute inset-0 z-0 pointer-events-none">
+              <div className="absolute inset-x-0 inset-y-0 z-0 pointer-events-none">
+                {/* Couple Photo Background (Subtle) */}
                 <div 
-                  className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay scale-110"
+                  className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-20 filter grayscale-50 backdrop-blur-[1px] scale-105"
+                  style={{ backgroundImage: 'url("/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg")' }}
+                ></div>
+                {/* Premium Illustration Overlay */}
+                <div 
+                  className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-30 mix-blend-overlay scale-110"
                   style={{ backgroundImage: 'url("/wedding-next/wedding_background_premium.png")' }}
                 ></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/90 via-[#5c141d]/80 to-[#3a0d11]/90 backdrop-blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/80 via-[#5c141d]/70 to-[#3a0d11]/80 backdrop-blur-[1px]"></div>
               </div>
             )}
             
@@ -243,10 +249,10 @@ export default function Home() {
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="space-y-4"
+                      className="space-y-4 px-4"
                     >
-                      <h2 className="text-sm tracking-[0.2em] uppercase text-[#f3f4f6]">The Wedding Of</h2>
-                      <h1 className="font-script text-6xl text-[#deaf5c] drop-shadow-2xl">Putri Aurelia & Riswandi</h1>
+                      <h2 className="text-[10px] tracking-[0.4em] uppercase text-[#f3f4f6]/80 font-light">The Wedding Of</h2>
+                      <h1 className="font-script text-5xl text-[#deaf5c] drop-shadow-2xl leading-tight">Putri Aurelia & Riswandi</h1>
                     </motion.div>
 
                     <motion.div 
@@ -284,17 +290,17 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2 }}
-                  className="space-y-8 z-10 w-full max-w-sm"
+                  className="space-y-6 z-10 w-full max-w-sm px-4"
                 >
-                  <Heart className="mx-auto text-[#deaf5c]" size={40} />
-                  <div className="space-y-4">
-                    <h2 className="text-md font-bold uppercase tracking-[0.2em] text-[#deaf5c]">Pernikahan</h2>
-                    <div className="space-y-2 py-4">
-                      <h3 className="font-script text-7xl text-[#deaf5c]">Putri Aurelia</h3>
-                      <p className="text-3xl opacity-80 font-script">&</p>
-                      <h3 className="font-script text-7xl text-[#deaf5c]">Riswandi</h3>
+                  <Heart className="mx-auto text-[#deaf5c]/40" size={30} />
+                  <div className="space-y-2">
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#deaf5c]/80 shadow-sm">Pernikahan</h2>
+                    <div className="space-y-1 py-4">
+                      <h3 className="font-script text-5xl text-[#deaf5c] drop-shadow-lg">Putri Aurelia</h3>
+                      <p className="text-xl opacity-60 font-serif italic text-[#deaf5c]">&</p>
+                      <h3 className="font-script text-5xl text-[#deaf5c] drop-shadow-lg">Riswandi</h3>
                     </div>
-                    <p className="text-sm font-bold tracking-[0.2em] opacity-90 text-[#deaf5c]">Sabtu, 04 April 2026</p>
+                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] opacity-90 text-[#deaf5c]">Sabtu, 04 April 2026</p>
                     
                     {/* Countdown Timer */}
                     <div className="grid grid-cols-4 gap-2 w-full pt-4">
