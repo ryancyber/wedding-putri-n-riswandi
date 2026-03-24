@@ -204,7 +204,7 @@ export default function Home() {
         </div>
 
         {/* Right Side / Mobile Full: Scrollable Content */}
-        <div className="w-full lg:w-1/2 min-h-screen relative flex justify-center bg-[#5c141d]">
+        <div className="w-full lg:w-1/2 min-h-screen relative flex justify-center bg-transparent">
           {/* Mobile Max-Width Container */}
           <div className={`w-full max-w-md bg-transparent h-[100dvh] relative shadow-2xl no-scrollbar scroll-smooth ${isOpened ? "overflow-y-auto" : "overflow-hidden"}`}>
             
@@ -213,11 +213,11 @@ export default function Home() {
               <div className="absolute inset-x-0 inset-y-0 z-0 pointer-events-none">
                 {/* Couple Photo Background (Subtle) */}
                 <div 
-                  className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-40 backdrop-blur-[0.5px] scale-105 transition-opacity duration-1000"
-                  style={{ backgroundImage: 'url("/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg")' }}
+                  className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-60 backdrop-blur-[0.5px] scale-105 transition-opacity duration-1000"
+                  style={{ backgroundImage: 'url("/wedding-next/WhatsApp Image 2026-03-14 at 09.58.33.jpeg")' }}
                 ></div>
                 {/* Overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/50 via-[#5c141d]/30 to-[#3a0d11]/50"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/40 via-[#5c141d]/20 to-[#3a0d11]/40"></div>
               </div>
             )}
             
@@ -332,7 +332,7 @@ export default function Home() {
 
               {/* Quran Verse */}
               <section className="py-24 px-8 text-center border-b-2 border-[#deaf5c]/20 relative z-10 overflow-hidden">
-                <div className="absolute inset-0 bg-[#3a0d11]/60 backdrop-blur-sm -z-10"></div>
+                <div className="absolute inset-0 bg-[#3a0d11]/40 backdrop-blur-sm -z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -404,8 +404,9 @@ export default function Home() {
                 </div>
               </section>
 
-              {/* Event Schedule */}
-              <section id="event" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/20">
+              {/* Event Schedule Section */}
+              <section id="event" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 relative z-10">
+                <div className="absolute inset-0 bg-[#3a0d11]/20 backdrop-blur-md -z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
