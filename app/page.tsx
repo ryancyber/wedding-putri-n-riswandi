@@ -455,12 +455,12 @@ export default function Home() {
                 >
                   <h2 className="text-3xl font-script text-[#deaf5c]">Galeri</h2>
                   <div className="grid grid-cols-2 gap-4">
-                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" className="rounded-xl object-cover object-top w-full h-56 shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 1" />
-                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.01.jpeg" className="rounded-xl object-cover object-top w-full h-56 shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 2" />
-                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.33.jpeg" className="rounded-xl object-cover object-top w-full h-56 shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 3" />
-                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg" className="rounded-xl object-cover object-top w-full h-56 shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 4" />
-                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.19.jpeg" className="rounded-xl object-cover object-top w-full h-56 shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 5" />
-                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.35.jpeg" className="rounded-xl object-cover object-top w-full h-56 shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 6" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" className="rounded-xl object-cover object-top w-full aspect-[3/4] shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 1" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.01.jpeg" className="rounded-xl object-cover object-top w-full aspect-[3/4] shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 2" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.33.jpeg" className="rounded-xl object-cover object-top w-full aspect-[3/4] shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 3" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg" className="rounded-xl object-cover object-top w-full aspect-[3/4] shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 4" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.19.jpeg" className="rounded-xl object-cover object-top w-full aspect-[3/4] shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 5" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.35.jpeg" className="rounded-xl object-cover object-top w-full aspect-[3/4] shadow-2xl border-2 border-[#deaf5c]/40" alt="Gallery 6" />
                   </div>
                 </motion.div>
               </section>
