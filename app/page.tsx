@@ -134,6 +134,15 @@ export default function Home() {
         <source src="/wedding-next/De Umelo Ko Tania Idi - Dianty Oslan ( Cover Music Video ).mp3" type="audio/mpeg" />
       </audio>
 
+      {/* Global Background Layer */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay scale-105"
+          style={{ backgroundImage: 'url("/wedding-next/wedding_background_premium.png")' }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/80 via-[#5c141d]/70 to-[#3a0d11]/90"></div>
+      </div>
+
       {/* THREE.JS Particle Background Layer */}
       <ParticleBackground />
 
@@ -172,26 +181,30 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Desktop Split Container */}
-      <div className="flex w-full xl:max-w-[1200px] shadow-2xl">
-        {/* Left Side: Desktop Only, Static Bugis Pattern & Content */}
-        <div className="hidden lg:flex w-1/2 min-h-screen relative flex-col items-center justify-center p-12 bg-[#5c141d] border-r border-[#deaf5c]/20">
-          <div 
-            className="absolute inset-0 opacity-10 pointer-events-none"
-            style={{
-              backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 0l20 20-20 20L0 20z" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-              backgroundSize: '40px 40px'
-            }}
-          ></div>
-          <div className="relative z-10 text-center space-y-6">
-            <h2 className="text-xl tracking-widest uppercase">The Wedding Of</h2>
-            <h1 className="font-script text-7xl text-[#deaf5c] drop-shadow-lg">Putri Aurelia & Riswandi</h1>
-            <p className="text-lg opacity-90 mt-4 tracking-wide">Sabtu, 04 April 2026</p>
-          </div>
+      <div className="flex w-full xl:max-w-[1200px] shadow-2xl relative z-10">
+        {/* Left Side: Desktop Only */}
+        <div className="hidden lg:flex w-1/2 min-h-screen relative flex-col items-center justify-center p-12 bg-[#5c141d] border-r border-[#deaf5c]/20 overflow-hidden">
+           <div 
+             className="absolute inset-x-0 bottom-0 h-96 bg-[url('/wedding-next/wedding_background_premium.png')] bg-contain bg-bottom bg-no-repeat opacity-20 pointer-events-none"
+           ></div>
+           <div className="relative z-10 text-center space-y-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="space-y-4"
+              >
+                <h2 className="text-xl tracking-[0.3em] uppercase opacity-80 font-light text-[#f9f5f0]">The Wedding Of</h2>
+                <div className="w-12 h-px bg-[#deaf5c] mx-auto opacity-50"></div>
+                <h1 className="font-script text-8xl text-[#deaf5c] drop-shadow-2xl">
+                  Putri Aurelia & Riswandi
+                </h1>
+                <p className="text-2xl opacity-90 tracking-[0.2em] font-light text-[#f9f5f0]">Sabtu, 04 April 2026</p>
+              </motion.div>
+           </div>
         </div>
 
         {/* Right Side / Mobile Full: Scrollable Content */}
         <div className="w-full lg:w-1/2 min-h-screen relative flex justify-center bg-[#5c141d]">
-          {/* Mobile Max-Width Container */}
           <div className={`w-full max-w-md bg-[#3a0d11] h-[100dvh] relative shadow-2xl no-scrollbar scroll-smooth ${isOpened ? "overflow-y-auto" : "overflow-hidden"}`}>
             
             {/* --- 1. COVER / OPENING SCREEN --- */}
@@ -203,46 +216,31 @@ export default function Home() {
                   transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
                   className="absolute inset-0 h-[100dvh] z-40 bg-[#3a0d11] flex flex-col items-center justify-between p-8 text-center overscroll-none overflow-hidden"
                 >
-                  {/* Background Image Layer */}
                   <div className="absolute inset-0 z-0">
                     <Image
-                      src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" // Assuming this is the couple image or intended background
+                      src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg"
                       alt="Wedding Background"
                       fill
                       className="object-cover"
                       priority
                     />
-                    {/* Blur and Gradient Overlays */}
-                    {/* <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" /> */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#5c141d] via-[#5c141d]/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#3a0d11] via-[#3a0d11]/60 to-transparent" />
                   </div>
 
-                  {/* Decorative Architectural Pattern (Bottom) */}
-                  <div 
-                    className="absolute bottom-0 left-0 w-full h-1/2 opacity-30 pointer-events-none z-10"
-                    style={{
-                      backgroundImage: `url('data:image/svg+xml;utf8,<svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg"><path d="M0 600 L200 400 L400 600 L600 400 L800 600 L1000 400" fill="none" stroke="%23deaf5c" stroke-width="2" opacity="0.5"/><path d="M100 500 L300 300 L500 500 L700 300 L900 500" fill="none" stroke="%23deaf5c" stroke-width="1" opacity="0.3"/></svg>')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'bottom'
-                    }}
-                  />
-
-                  {/* Content Container */}
                   <div className="relative z-20 flex flex-col h-full justify-end pb-12 space-y-12 w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 1 }}
                       className="space-y-4"
                     >
-                      <h2 className="text-sm tracking-[0.2em] uppercase text-[#f3f4f6] drop-shadow-lg">The Wedding Of</h2>
+                      <h2 className="text-sm tracking-[0.2em] uppercase text-[#f3f4f6]">The Wedding Of</h2>
                       <h1 className="font-script text-6xl text-[#deaf5c] drop-shadow-2xl">Putri Aurelia & Riswandi</h1>
                     </motion.div>
 
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 1 }}
+                      transition={{ delay: 0.2 }}
                       className="space-y-8"
                     >
                       <div className="space-y-1">
@@ -259,15 +257,6 @@ export default function Home() {
                       </button>
                     </motion.div>
                   </div>
-
-                  {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -279,416 +268,296 @@ export default function Home() {
               <section id="hero" className="min-h-[100dvh] flex flex-col items-center justify-center p-6 text-center relative border-b-2 border-[#deaf5c]/20">
                 <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-[#deaf5c]/10 to-transparent" />
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                  whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
+                  transition={{ duration: 1.2 }}
                   className="space-y-8 z-10 w-full max-w-sm"
                 >
-                  <Heart className="mx-auto text-[#deaf5c]" size={40} strokeWidth={1.5} />
+                  <Heart className="mx-auto text-[#deaf5c]" size={40} />
                   <div className="space-y-4">
-                    <h2 className="text-lg font-bold uppercase tracking-[0.2em] text-[#deaf5c] drop-shadow-sm">Pernikahan</h2>
+                    <h2 className="text-md font-bold uppercase tracking-[0.2em] text-[#deaf5c]">Pernikahan</h2>
                     <div className="space-y-2 py-4">
-                      <h3 className="font-script font-bold text-7xl md:text-8xl shadow-sm">Putri Aurelia</h3>
+                      <h3 className="font-script text-7xl text-[#deaf5c]">Putri Aurelia</h3>
                       <p className="text-3xl opacity-80 font-script">&</p>
-                      <h3 className="font-script font-bold text-7xl md:text-8xl shadow-sm">Riswandi</h3>
+                      <h3 className="font-script text-7xl text-[#deaf5c]">Riswandi</h3>
                     </div>
-                  </div>
-                  
-                  <div className="space-y-8">
-                    <p className="text-md font-bold tracking-widest opacity-90 text-[#deaf5c]">
-                      Sabtu, 04 April 2026
-                    </p>
+                    <p className="text-sm font-bold tracking-[0.2em] opacity-90 text-[#deaf5c]">Sabtu, 04 April 2026</p>
                     
                     {/* Countdown Timer */}
                     <div className="grid grid-cols-4 gap-2 w-full pt-4">
-                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80 shadow-inner">
-                        <span className="text-xl sm:text-2xl font-bold text-[#f9f5f0]">{String(timeLeft.days).padStart(2, '0')}</span>
-                        <span className="text-[10px] sm:text-xs uppercase tracking-wider opacity-80 mt-1">Hari</span>
+                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80">
+                        <span className="text-xl font-bold text-[#f9f5f0]">{String(timeLeft.days).padStart(2, '0')}</span>
+                        <span className="text-[10px] uppercase opacity-80">Hari</span>
                       </div>
-                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80 shadow-inner">
-                        <span className="text-xl sm:text-2xl font-bold text-[#f9f5f0]">{String(timeLeft.hours).padStart(2, '0')}</span>
-                        <span className="text-[10px] sm:text-xs uppercase tracking-wider opacity-80 mt-1">Jam</span>
+                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80">
+                        <span className="text-xl font-bold text-[#f9f5f0]">{String(timeLeft.hours).padStart(2, '0')}</span>
+                        <span className="text-[10px] uppercase opacity-80">Jam</span>
                       </div>
-                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80 shadow-inner">
-                        <span className="text-xl sm:text-2xl font-bold text-[#f9f5f0]">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                        <span className="text-[10px] sm:text-xs uppercase tracking-wider opacity-80 mt-1">Menit</span>
+                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80">
+                        <span className="text-xl font-bold text-[#f9f5f0]">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                        <span className="text-[10px] uppercase opacity-80">Menit</span>
                       </div>
-                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80 shadow-inner">
-                        <span className="text-xl sm:text-2xl font-bold text-[#f9f5f0]">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                        <span className="text-[10px] sm:text-xs uppercase tracking-wider opacity-80 mt-1">Detik</span>
+                      <div className="flex flex-col items-center justify-center py-3 rounded-lg border border-[#deaf5c] bg-[#5c141d]/80">
+                        <span className="text-xl font-bold text-[#f9f5f0]">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                        <span className="text-[10px] uppercase opacity-80">Detik</span>
                       </div>
                     </div>
-
-                    {/* Simpan Tanggal Button */}
-                    <a 
-                      href="#" 
-                      onClick={(e) => { e.preventDefault(); alert("Fitur simpan ke kalender (misal: link Google Calendar) dapat disematkan di sini.") }}
-                      className="inline-flex items-center space-x-2 px-8 py-3 bg-[#deaf5c] text-[#3a0d11] rounded-full font-bold uppercase text-sm tracking-wider hover:bg-[#c99a4c] transition-all transform hover:scale-105"
-                    >
-                      <CalendarDays size={18} />
-                      <span>Simpan Tanggal</span>
-                    </a>
                   </div>
-                    </motion.div>
-
-                    {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
-              </section>
-
-              {/* Quran Verse Section */}
-              <section className="py-20 px-8 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/50 relative">
-                <motion.div
-                  initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                  className="space-y-8 max-w-sm mx-auto z-10 relative"
-                >
-                  <Quote className="mx-auto text-[#deaf5c]/60" size={32} />
-                  <h4 className="font-serif text-xl tracking-wider text-[#deaf5c]">QS. Ar-Rum: 21</h4>
-                  <p className="text-sm leading-8 italic text-[#f9f5f0]/90 drop-shadow-sm font-light">
-                    &quot;Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.&quot;
-                  </p>
                 </motion.div>
-
-                {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
+                
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute bottom-10"
+                >
+                   <div className="w-px h-12 bg-gradient-to-b from-transparent via-[#deaf5c] to-transparent"></div>
+                </motion.div>
               </section>
 
-              {/* Couple Info Section */}
-              <section id="couple" className="py-24 px-8 text-center border-b-2 border-[#deaf5c]/20 relative overflow-hidden">
-                {/* Decorative background elements for premium feel */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#deaf5c]/5 blur-[80px] rounded-full pointer-events-none" />
-                
+              {/* Quran Verse */}
+              <section className="py-20 px-8 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/30">
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                  className="space-y-12 z-10 relative"
+                  className="space-y-6 max-w-sm mx-auto"
                 >
-                  {/* Unified Couple Image Container */}
-                  <div className="relative mx-auto w-72 h-96">
-                    {/* Decorative Frames */}
-                    <div className="absolute -inset-4 border border-[#deaf5c]/30 rounded-2xl rotate-3" />
-                    <div className="absolute -inset-4 border border-[#deaf5c]/20 rounded-2xl -rotate-3" />
-                    
-                    {/* Main Image Frame */}
-                    <div className="relative w-full h-full overflow-hidden rounded-2xl border-2 border-[#deaf5c] shadow-[0_0_30px_rgba(222,175,92,0.3)] bg-[#5c141d]">
-                      <img 
-                        src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" 
-                        alt="Putri Aurelia & Riswandi" 
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
-                      />
-                      {/* Glossy Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#3a0d11]/80 via-transparent to-transparent opacity-60" />
-                    </div>
-
-                    {/* Floating Heart Icon */}
-                    <motion.div 
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#deaf5c] rounded-full flex items-center justify-center shadow-lg border-2 border-[#3a0d11]"
-                    >
-                      <Heart size={20} className="fill-[#3a0d11] text-[#3a0d11]" />
-                    </motion.div>
-                  </div>
-
-                  <div className="space-y-16 mt-8">
-                    {/* Bride Details */}
-                    <div className="space-y-2">
-                      <h3 className="font-script text-5xl text-[#deaf5c] drop-shadow-md">Putri Aurelia</h3>
-                      <p className="text-sm opacity-90 text-[#f9f5f0] font-light tracking-widest uppercase">Putri pertama dari bpk Rustang dan ibu Hermawati</p>
-                    </div>
-                    
-                    {/* Divider Text */}
-                    <div className="flex items-center justify-center space-x-4 opacity-50">
-                      <div className="h-[1px] w-12 bg-[#deaf5c]" />
-                      <span className="font-script text-2xl text-[#deaf5c]">&</span>
-                      <div className="h-[1px] w-12 bg-[#deaf5c]" />
-                    </div>
-
-                    {/* Groom Details */}
-                    <div className="space-y-2">
-                      <h3 className="font-script text-5xl text-[#deaf5c] drop-shadow-md">Riswandi</h3>
-                      <p className="text-sm opacity-90 text-[#f9f5f0] font-light tracking-widest uppercase">Putra pertama dari bpk alm.Arsad dan ibu lina</p>
-                    </div>
-                  </div>
+                  <Quote className="mx-auto text-[#deaf5c]/50" size={32} />
+                  <p className="text-sm leading-relaxed italic text-[#f9f5f0]/90">
+                    &quot;Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya...&quot;
+                  </p>
+                  <h4 className="font-serif text-[#deaf5c]">QS. Ar-Rum: 21</h4>
                 </motion.div>
-
-                {/* Bottom Border Decoration */}
-                <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                     style={{
-                       backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                       backgroundSize: '40px 20px',
-                       backgroundRepeat: 'repeat-x'
-                     }}
-                />
               </section>
 
-              {/* Event Schedule Section */}
-              <section id="event" className="py-24 px-8 text-center border-b-2 border-[#deaf5c]/20 relative z-10">
+              {/* Couple Info */}
+              <section id="couple" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 relative">
+                <div className="max-w-md mx-auto space-y-24">
+                  {/* Bride */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="space-y-8"
+                  >
+                    <div className="relative aspect-[3/4] max-w-[280px] mx-auto">
+                      <div className="absolute -inset-4 border border-[#deaf5c]/30 rounded-t-full -z-10 bg-gradient-to-b from-[#5c141d]/40 to-transparent"></div>
+                      <div className="absolute -inset-2 border-2 border-[#deaf5c]/60 rounded-t-full"></div>
+                      <div className="w-full h-full overflow-hidden rounded-t-full border-4 border-[#deaf5c] shadow-2xl bg-[#5c141d]">
+                        <img 
+                          src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" 
+                          alt="Putri Aurelia" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="font-script text-5xl text-[#deaf5c]">Putri Aurelia</h3>
+                      <p className="text-xs uppercase tracking-widest text-[#f9f5f0]/80 px-4">
+                        Putri pertama dari bpk Rustang dan ibu Hermawati
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Groom */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="space-y-8"
+                  >
+                    <div className="relative aspect-[3/4] max-w-[280px] mx-auto">
+                      <div className="absolute -inset-4 border border-[#deaf5c]/30 rounded-t-full -z-10 bg-gradient-to-b from-[#5c141d]/40 to-transparent"></div>
+                      <div className="absolute -inset-2 border-2 border-[#deaf5c]/60 rounded-t-full"></div>
+                      <div className="w-full h-full overflow-hidden rounded-t-full border-4 border-[#deaf5c] shadow-2xl bg-[#5c141d]">
+                        <img 
+                          src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.01.jpeg" 
+                          alt="Riswandi" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="font-script text-5xl text-[#deaf5c]">Riswandi</h3>
+                      <p className="text-xs uppercase tracking-widest text-[#f9f5f0]/80 px-4">
+                         Putra Dari Bapak Fulan & Ibu Fulanah
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              </section>
+
+              {/* Event Schedule */}
+              <section id="event" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/20">
                 <motion.div
-                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1, type: "spring", bounce: 0.3 }}
-                  className="space-y-16"
+                  className="space-y-12"
                 >
                   <h2 className="text-3xl font-serif text-[#deaf5c]">Jadwal Acara</h2>
-
-                  <div className="p-8 border-2 border-[#deaf5c] rounded-t-full rounded-b-md relative overflow-hidden bg-[#3a0d11]/90 shadow-2xl backdrop-blur-sm hover:scale-[1.02] transition-transform">
-                    <div className="space-y-6 relative z-10">
-                      <h3 className="font-script text-4xl text-[#deaf5c]">Akad Nikah</h3>
-                      <div className="flex items-center justify-center space-x-2 text-sm text-[#f9f5f0]/90">
-                        <Calendar size={16} />
-                        <span>Sabtu, 04 April 2026</span>
-                      </div>
-                      <div className="flex items-center justify-center space-x-2 text-sm text-[#f9f5f0]/90">
-                        <MapPin size={16} />
-                        <span>Pukul 10:00 WITA - Selesai</span>
-                      </div>
-                      <div className="pt-4 border-t border-[#deaf5c]/30">
-                        <h4 className="font-bold text-[#f9f5f0]">Kediaman mempelai wanita
-Pammase, desa selli, kec bengo, kab bone</h4>
-                        <p className="text-sm mt-2 text-[#f9f5f0]/80 font-light"></p>
-                      </div>
+                  <div className="space-y-8">
+                    {/* Akad */}
+                    <div className="relative p-8 rounded-t-[100px] border-2 border-[#deaf5c]/50 bg-[#5c141d]/80 overflow-hidden shadow-2xl mx-auto max-w-sm">
+                       <div className="absolute inset-0 bg-[url('/wedding-next/wedding_background_premium.png')] bg-cover opacity-10 mix-blend-overlay"></div>
+                       <div className="relative z-10 space-y-4">
+                          <h3 className="font-script text-4xl text-[#deaf5c]">Akad Nikah</h3>
+                          <p className="text-sm font-bold text-[#f9f5f0]">Sabtu, 04 April 2026</p>
+                          <p className="text-xs text-[#f9f5f0]/80 italic">10:00 WITA - Selesai</p>
+                          <div className="pt-4 border-t border-[#deaf5c]/30">
+                            <p className="text-sm font-bold">Kediaman Mempelai Wanita</p>
+                            <p className="text-xs text-[#f9f5f0]/70 mt-1">Pammase, desa selli, kec bengo, kab bone</p>
+                          </div>
+                       </div>
                     </div>
-                  </div>
-
-                  <div className="p-8 border-2 border-[#deaf5c] rounded-t-full border-t-0 rounded-b-full relative overflow-hidden bg-[#5c141d]/90 shadow-2xl backdrop-blur-sm hover:scale-[1.02] transition-transform">
-                    <div className="space-y-6 relative z-10">
-                      <h3 className="font-script text-4xl text-[#deaf5c]">Resepsi</h3>
-                      <div className="flex items-center justify-center space-x-2 text-sm text-[#f9f5f0]/90">
-                        <Calendar size={16} />
-                        <span>Sabtu, 04 April 2026</span>
-                      </div>
-                      <div className="flex items-center justify-center space-x-2 text-sm text-[#f9f5f0]/90">
-                        <MapPin size={16} />
-                        <span>Pukul 10:00 WITA - Selesai</span>
-                      </div>
-                      <div className="pt-4 border-t border-[#deaf5c]/30">
-                        <h4 className="font-bold text-[#f9f5f0]">Kediaman mempelai wanita
-Pammase, desa selli, kec bengo, kab bone</h4>
-                        <p className="text-sm mt-2 text-[#f9f5f0]/80 font-light"></p>
-                      </div>
+                    {/* Resepsi */}
+                    <div className="relative p-8 rounded-t-[100px] border-2 border-[#deaf5c]/50 bg-[#5c141d]/80 overflow-hidden shadow-2xl mx-auto max-w-sm">
+                       <div className="absolute inset-0 bg-[url('/wedding-next/wedding_background_premium.png')] bg-cover opacity-10 mix-blend-overlay"></div>
+                       <div className="relative z-10 space-y-4">
+                          <h3 className="font-script text-4xl text-[#deaf5c]">Resepsi</h3>
+                          <p className="text-sm font-bold text-[#f9f5f0]">Sabtu, 04 April 2026</p>
+                          <p className="text-xs text-[#f9f5f0]/80 italic">10:00 WITA - Selesai</p>
+                          <div className="pt-4 border-t border-[#deaf5c]/30">
+                            <p className="text-sm font-bold">Kediaman Mempelai Wanita</p>
+                            <p className="text-xs text-[#f9f5f0]/70 mt-1">Pammase, desa selli, kec bengo, kab bone</p>
+                          </div>
+                       </div>
                     </div>
                   </div>
                 </motion.div>
-
-                {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
               </section>
 
-              {/* Gallery Section */}
-              <section id="gallery" className="py-24 px-8 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/30 relative z-10">
+              {/* Gallery */}
+              <section id="gallery" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
                   className="space-y-8"
                 >
                   <h2 className="text-3xl font-script text-[#deaf5c]">Galeri</h2>
-                  <div className="grid grid-cols-2 gap-4">
-                    <motion.img whileHover={{ scale: 1.05 }} src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" alt="Gallery 1" className="rounded-md object-cover w-full h-40 border-2 border-[#deaf5c]/50 shadow-lg" />
-                    <motion.img whileHover={{ scale: 1.05 }} src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.35.jpeg" alt="Gallery 4" className="rounded-md object-cover w-full h-40 border-2 border-[#deaf5c]/50 shadow-lg" />
-                    <motion.img whileHover={{ scale: 1.05 }} src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.19.jpeg" alt="Gallery 4" className="rounded-md object-cover w-full h-40 border-2 border-[#deaf5c]/50 shadow-lg" />
-                    <motion.img whileHover={{ scale: 1.05 }} src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg" alt="Gallery 4" className="rounded-md object-cover w-full h-40 border-2 border-[#deaf5c]/50 shadow-lg" />
-                    <motion.img whileHover={{ scale: 1.05 }} src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.33.jpeg" alt="Gallery 3" className="rounded-md object-cover w-full h-40 border-2 border-[#deaf5c]/50 shadow-lg" />
-                    <motion.img whileHover={{ scale: 1.05 }} src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.01.jpeg" alt="Gallery 2" className="rounded-md object-cover w-full h-40 border-2 border-[#deaf5c]/50 shadow-lg" />
+                  <div className="grid grid-cols-2 gap-3">
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.57.42.jpeg" className="rounded-lg object-cover w-full h-40 border border-[#deaf5c]/30" alt="Gallery" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.01.jpeg" className="rounded-lg object-cover w-full h-40 border border-[#deaf5c]/30" alt="Gallery" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.33.jpeg" className="rounded-lg object-cover w-full h-40 border border-[#deaf5c]/30" alt="Gallery" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg" className="rounded-lg object-cover w-full h-40 border border-[#deaf5c]/30" alt="Gallery" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.19.jpeg" className="rounded-lg object-cover w-full h-40 border border-[#deaf5c]/30" alt="Gallery" />
+                    <img src="/wedding-next/WhatsApp Image 2026-03-14 at 09.59.35.jpeg" className="rounded-lg object-cover w-full h-40 border border-[#deaf5c]/30" alt="Gallery" />
                   </div>
                 </motion.div>
-
-                {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
               </section>
 
-              {/* Wedding Gift Section */}
-              <section id="gift" className="py-24 px-8 text-center border-b-2 border-[#deaf5c]/20 relative z-10">
+              {/* Wedding Gift */}
+              <section id="gift" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/10">
                 <motion.div
-                  initial={{ opacity: 0, y: 50, rotateX: -15, filter: "blur(5px)" }}
-                  whileInView={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  style={{ perspective: 1000 }}
-                  className="space-y-10 max-w-sm mx-auto"
+                  className="space-y-8"
                 >
-                  <div className="space-y-6 text-center">
-                    <h2 className="text-4xl font-script text-[#deaf5c]">Wedding Gift</h2>
-                    <p className="text-sm text-[#f9f5f0]/90 leading-relaxed font-light">
-                      Doa Restu Anda merupakan karunia yang sangat berarti bagi kami.
-                      <br /><br />
-                      Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
-                    </p>
-                    <button 
-                      onClick={() => setShowGift(!showGift)}
-                      className="px-6 py-3 bg-[#deaf5c] text-[#3a0d11] rounded-full font-bold text-sm hover:bg-[#c99a4c] transition-colors inline-flex items-center space-x-2"
-                    >
-                      <CreditCard size={18} />
-                      <span>Klik di Sini</span>
-                    </button>
-                  </div>
+                  <h2 className="text-4xl font-script text-[#deaf5c]">Wedding Gift</h2>
+                  <p className="text-sm text-[#f9f5f0]/80 px-4">
+                    Jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
+                  </p>
+                  <button 
+                    onClick={() => setShowGift(!showGift)}
+                    className="px-8 py-3 bg-[#deaf5c] text-[#3a0d11] rounded-full font-bold uppercase text-xs"
+                  >
+                    Kirim Hadiah
+                  </button>
 
                   <AnimatePresence>
                     {showGift && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0, y: -20 }}
-                        animate={{ opacity: 1, height: "auto", y: 0 }}
-                        exit={{ opacity: 0, height: 0, y: -20 }}
-                        className="space-y-6 overflow-hidden"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="space-y-6 pt-8 overflow-hidden"
                       >
-                         {/* Card BCA */}
-                         <div className="bg-[#5c141d]/90 backdrop-blur-sm p-6 rounded-xl border border-[#deaf5c]/50 text-left relative shadow-2xl mt-4">
-                            <CreditCard className="absolute top-6 right-6 text-[#deaf5c]/50" size={32} />
-                            <h3 className="font-bold text-xl tracking-wider text-[#deaf5c] mb-6 italic">BSI</h3>
-                            <div className="space-y-2">
-                               <p className="text-[10px] text-[#deaf5c] uppercase tracking-widest">No Rekening</p>
-                               <div className="flex items-center justify-between">
-                                  <p className="font-bold text-lg tracking-widest text-[#f9f5f0]">7174100505</p>
-                                  <button onClick={() => { navigator.clipboard.writeText("7174100505"); alert("No Rekening Berhasil Disalin"); }} className="px-3 py-1 bg-[#deaf5c] text-[#3a0d11] rounded text-xs font-bold inline-flex items-center space-x-1 hover:bg-[#c99a4c]">
-                                    <Copy size={12} /><span>Salin</span>
-                                  </button>
-                               </div>
-                               <p className="text-[10px] text-[#deaf5c] uppercase tracking-widest mt-4">Atas Nama</p>
-                               <p className="text-sm italic text-[#f9f5f0]/90">Nurindah</p>
-                            </div>
+                         <div className="bg-[#5c141d] p-8 rounded-t-[80px] border-2 border-[#deaf5c]/50 text-center space-y-4 shadow-2xl relative overflow-hidden max-w-xs mx-auto">
+                            <h3 className="font-bold text-[#deaf5c]">BANK BSI</h3>
+                            <p className="text-lg font-bold">7174100505</p>
+                            <p className="text-xs text-[#f9f5f0]">a.n Nurindah</p>
+                            <button onClick={() => { navigator.clipboard.writeText("7174100505"); alert("Disalin!"); }} className="text-[10px] bg-[#deaf5c] text-[#3a0d11] px-4 py-1 rounded-full font-bold">SALIN</button>
                          </div>
-                         {/* Card DANA */}
-                         <div className="bg-[#5c141d]/90 backdrop-blur-sm p-6 rounded-xl border border-[#deaf5c]/50 text-left relative shadow-2xl">
-                            <CreditCard className="absolute top-6 right-6 text-[#deaf5c]/50" size={32} />
-                            <h3 className="font-bold text-xl tracking-wider text-[#deaf5c] mb-6 italic">DANA</h3>
-                            <div className="space-y-2">
-                               <p className="text-[10px] text-[#deaf5c] uppercase tracking-widest">Nomor</p>
-                               <div className="flex items-center justify-between">
-                                  <p className="font-bold text-lg tracking-widest text-[#f9f5f0]">089604436922</p>
-                                  <button onClick={() => { navigator.clipboard.writeText("089604436922"); alert("Nomor Dana Berhasil Disalin"); }} className="px-3 py-1 bg-[#deaf5c] text-[#3a0d11] rounded text-xs font-bold inline-flex items-center space-x-1 hover:bg-[#c99a4c]">
-                                    <Copy size={12} /><span>Salin</span>
-                                  </button>
-                               </div>
-                               <p className="text-[10px] text-[#deaf5c] uppercase tracking-widest mt-4">Atas Nama</p>
-                               <p className="text-sm italic text-[#f9f5f0]/90">Putri Aurelia</p>
-                            </div>
+                         <div className="bg-[#5c141d] p-8 rounded-t-[80px] border-2 border-[#deaf5c]/50 text-center space-y-4 shadow-2xl relative overflow-hidden max-w-xs mx-auto">
+                            <h3 className="font-bold text-[#deaf5c]">DANA</h3>
+                            <p className="text-lg font-bold">089604436922</p>
+                            <p className="text-xs text-[#f9f5f0]">a.n Putri Aurelia</p>
+                            <button onClick={() => { navigator.clipboard.writeText("089604436922"); alert("Disalin!"); }} className="text-[10px] bg-[#deaf5c] text-[#3a0d11] px-4 py-1 rounded-full font-bold">SALIN</button>
                          </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </motion.div>
-
-                {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
               </section>
 
-              {/* Guestbook Section */}
-              <section id="wishes" className="py-24 px-8 relative z-10">
+              {/* Guestbook */}
+              <section id="wishes" className="py-24 px-6 text-center relative z-10">
                 <motion.div
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1 }}
-                  className="space-y-10 max-w-sm mx-auto"
+                  className="space-y-12"
                 >
-                  <div className="text-center space-y-4">
-                    <h2 className="text-3xl font-serif text-[#deaf5c]">Buku Tamu</h2>
-                    <p className="text-sm text-[#f9f5f0]/80 font-light">Kirimkan doa dan ucapan manis untuk kami</p>
-                  </div>
-                  
-                  <form onSubmit={submitWish} className="space-y-4 bg-[#5c141d]/70 backdrop-blur-md p-6 rounded-xl border border-[#deaf5c]/30 shadow-xl">
-                    <input 
-                      type="text" 
-                      placeholder="Nama Anda" 
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-[#3a0d11]/80 p-3 rounded border border-[#deaf5c]/50 text-white placeholder-white/40 focus:outline-none focus:border-[#deaf5c]"
-                    />
-                    <select 
-                      value={attendance}
-                      onChange={(e) => setAttendance(e.target.value)}
-                      className="w-full bg-[#3a0d11]/80 p-3 rounded border border-[#deaf5c]/50 text-white focus:outline-none focus:border-[#deaf5c]"
-                    >
-                      <option value="hadir">Hadir</option>
-                      <option value="tidak_hadir">Tidak Hadir</option>
-                      <option value="ragu">Masih Ragu</option>
-                    </select>
-                    <textarea 
-                      placeholder="Pesan & Doa..." 
-                      rows={4}
-                      required
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      className="w-full bg-[#3a0d11]/80 p-3 rounded border border-[#deaf5c]/50 text-white placeholder-white/40 focus:outline-none focus:border-[#deaf5c]"
-                    ></textarea>
-                    <button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full py-3 bg-[#deaf5c] text-[#3a0d11] font-bold rounded hover:bg-[#c99a4c] transition-colors disabled:opacity-50"
-                    >
-                      {isSubmitting ? "Mengirim..." : "Kirim Ucapan"}
-                    </button>
-                  </form>
+                  <h2 className="text-3xl font-serif text-[#deaf5c]">Buku Tamu</h2>
+                  <div className="bg-[#5c141d]/80 p-8 rounded-t-[50px] border-2 border-[#deaf5c]/50 shadow-2xl max-w-sm mx-auto">
+                    <form onSubmit={submitWish} className="space-y-4">
+                      <input
+                        type="text"
+                        placeholder="Nama"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full bg-[#3a0d11]/50 border border-[#deaf5c]/30 rounded-full px-6 py-2 text-sm text-[#f9f5f0] focus:outline-none placeholder-[#deaf5c]/40"
+                        required
+                      />
+                      <select
+                        value={attendance}
+                        onChange={(e) => setAttendance(e.target.value)}
+                        className="w-full bg-[#3a0d11]/50 border border-[#deaf5c]/30 rounded-full px-6 py-2 text-sm text-[#f9f5f0] focus:outline-none"
+                      >
+                        <option value="hadir">Hadir</option>
+                        <option value="tidak_hadir">Tidak Hadir</option>
+                        <option value="ragu">Ragu</option>
+                      </select>
+                      <textarea
+                        placeholder="Ucapan & Doa"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        className="w-full bg-[#3a0d11]/50 border border-[#deaf5c]/30 rounded-2xl px-6 py-3 text-sm text-[#f9f5f0] focus:outline-none placeholder-[#deaf5c]/40 min-h-[100px]"
+                        required
+                      ></textarea>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-[#deaf5c] text-[#3a0d11] font-bold py-3 rounded-full text-sm hover:scale-105 transition-transform"
+                      >
+                        {isSubmitting ? "Mengirim..." : "Kirim"}
+                      </button>
+                    </form>
 
-                  <div className="space-y-4 max-h-[400px] overflow-y-auto no-scrollbar pt-4">
-                    {wishes.map((wish, idx) => (
-                      <div key={wish.id || idx} className="bg-[#3a0d11]/80 backdrop-blur-sm p-4 rounded-lg border border-[#deaf5c]/20 shadow-md">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-bold text-[#f9f5f0]">{wish.name}</h4>
-                          <span className={`text-[10px] sm:text-xs px-2 py-1 rounded tracking-wider uppercase ${
-                            wish.attendance === "hadir" ? "bg-green-900/50 text-green-200 border border-green-700" :
-                            wish.attendance === "tidak_hadir" ? "bg-red-900/50 text-red-200 border border-red-700" : "bg-yellow-900/50 text-yellow-200 border border-yellow-700"
-                          }`}>
-                            {wish.attendance === "hadir" ? "Hadir" : wish.attendance === "tidak_hadir" ? "Tidak Hadir" : "Ragu"}
-                          </span>
+                    <div className="mt-8 space-y-4 max-h-[300px] overflow-y-auto no-scrollbar pt-4">
+                      {wishes.map((wish, idx) => (
+                        <div key={wish.id || idx} className="bg-[#3a0d11]/40 p-4 rounded-xl border border-[#deaf5c]/20 text-left">
+                          <div className="flex justify-between items-center mb-1">
+                            <h4 className="font-bold text-[#deaf5c] text-sm">{wish.name}</h4>
+                            <span className="text-[8px] bg-[#deaf5c]/10 text-[#deaf5c] px-2 py-0.5 rounded-full uppercase leading-none">{wish.attendance}</span>
+                          </div>
+                          <p className="text-xs text-[#f9f5f0]/80 italic">"{wish.message}"</p>
                         </div>
-                        <p className="text-sm text-[#f9f5f0]/80 leading-relaxed font-light">{wish.message}</p>
-                      </div>
-                    ))}
-                    {wishes.length === 0 && (
-                      <p className="text-center text-sm text-[#f9f5f0]/50 py-4 font-light">Belum ada ucapan.</p>
-                    )}
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
-
-                {/* Bottom Border Decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-4 z-30 opacity-60"
-                       style={{
-                         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 20 L10 10 L20 20 L30 10 L40 20" fill="none" stroke="%23deaf5c" stroke-width="2"/></svg>')`,
-                         backgroundSize: '40px 20px',
-                         backgroundRepeat: 'repeat-x'
-                       }}
-                  />
+                
+                <div className="absolute inset-x-0 bottom-0 h-40 bg-[url('/wedding-next/wedding_background_premium.png')] bg-contain bg-bottom bg-no-repeat opacity-30 pointer-events-none -z-10"></div>
               </section>
+
+              <footer className="py-12 text-center opacity-50">
+                 <p className="text-[10px] tracking-widest uppercase text-[#f9f5f0]">Putri Aurelia & Riswandi &bull; 2026</p>
+              </footer>
 
             </div>
           </div>
