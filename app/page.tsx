@@ -205,7 +205,19 @@ export default function Home() {
 
         {/* Right Side / Mobile Full: Scrollable Content */}
         <div className="w-full lg:w-1/2 min-h-screen relative flex justify-center bg-[#5c141d]">
-          <div className={`w-full max-w-md bg-[#3a0d11] h-[100dvh] relative shadow-2xl no-scrollbar scroll-smooth ${isOpened ? "overflow-y-auto" : "overflow-hidden"}`}>
+          {/* Mobile Max-Width Container */}
+          <div className={`w-full max-w-md bg-transparent h-[100dvh] relative shadow-2xl no-scrollbar scroll-smooth ${isOpened ? "overflow-y-auto" : "overflow-hidden"}`}>
+            
+            {/* Dedicated Background Layer for Mobile Content */}
+            {isOpened && (
+              <div className="absolute inset-0 z-0 pointer-events-none">
+                <div 
+                  className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay scale-110"
+                  style={{ backgroundImage: 'url("/wedding-next/wedding_background_premium.png")' }}
+                ></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/90 via-[#5c141d]/80 to-[#3a0d11]/90 backdrop-blur-[2px]"></div>
+              </div>
+            )}
             
             {/* --- 1. COVER / OPENING SCREEN --- */}
             <AnimatePresence>
