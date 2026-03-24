@@ -217,7 +217,7 @@ export default function Home() {
                   style={{ backgroundImage: 'url("/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg")' }}
                 ></div>
                 {/* Overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/70 via-[#5c141d]/50 to-[#3a0d11]/70"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/50 via-[#5c141d]/30 to-[#3a0d11]/50"></div>
               </div>
             )}
             
@@ -447,7 +447,7 @@ export default function Home() {
               {/* Gallery Section */}
               <section id="gallery" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 relative z-10">
                 {/* Backdrop Overlay for Gallery content */}
-                <div className="absolute inset-0 bg-[#3a0d11]/60 backdrop-blur-sm -z-10"></div>
+                <div className="absolute inset-0 bg-[#3a0d11]/30 backdrop-blur-sm -z-10"></div>
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -468,7 +468,7 @@ export default function Home() {
 
               {/* Wedding Gift Section */}
               <section id="gift" className="py-24 px-6 text-center border-b-2 border-[#deaf5c]/20 relative z-10 overflow-hidden">
-                <div className="absolute inset-0 bg-[#3a0d11]/70 backdrop-blur-md -z-10"></div>
+                <div className="absolute inset-0 bg-[#3a0d11]/40 backdrop-blur-md -z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -514,7 +514,7 @@ export default function Home() {
 
               {/* Guestbook Section */}
               <section id="wishes" className="py-24 px-6 text-center relative z-10">
-                <div className="absolute inset-x-0 top-0 h-full bg-[#3a0d11]/80 backdrop-blur-lg -z-10"></div>
+                <div className="absolute inset-x-0 top-0 h-full bg-[#3a0d11]/50 backdrop-blur-lg -z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -522,7 +522,7 @@ export default function Home() {
                   className="space-y-12"
                 >
                   <h2 className="text-3xl font-serif text-[#deaf5c] drop-shadow-md">Buku Tamu</h2>
-                  <div className="bg-[#3a0d11] p-8 rounded-t-[50px] border-2 border-[#deaf5c]/50 shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-sm mx-auto">
+                  <div className="bg-[#3a0d11]/70 p-8 rounded-t-[50px] border-2 border-[#deaf5c]/50 shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-sm mx-auto">
                     <form onSubmit={submitWish} className="space-y-6">
                       <input
                         type="text"
