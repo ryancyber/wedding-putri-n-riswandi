@@ -214,7 +214,7 @@ export default function Home() {
                 {/* Couple Photo Background (Subtle) */}
                 <div 
                   className="fixed inset-0 lg:absolute bg-cover bg-center bg-no-repeat opacity-40 backdrop-blur-[0.5px] scale-105 transition-opacity duration-1000"
-                  style={{ backgroundImage: 'url("/wedding-next/WhatsApp Image 2026-03-24 at 20.23.39.jpeg")' }}
+                  style={{ backgroundImage: 'url("/wedding-next/WhatsApp Image 2026-03-14 at 09.58.58.jpeg")' }}
                 ></div>
                 {/* Overlay to ensure text readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#3a0d11]/70 via-[#5c141d]/50 to-[#3a0d11]/70"></div>
@@ -396,7 +396,7 @@ export default function Home() {
                     <div className="space-y-4">
                       <h3 className="font-script text-5xl text-[#deaf5c]">Riswandi</h3>
                       <p className="text-xs uppercase tracking-widest text-[#f9f5f0]/80 px-4">
-                         
+                         Putra pertama dari bpk alm.Arsad dan ibu lina
                       </p>
                     </div>
                   </motion.div>
