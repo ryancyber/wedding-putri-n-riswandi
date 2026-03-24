@@ -331,18 +331,19 @@ export default function Home() {
               </section>
 
               {/* Quran Verse */}
-              <section className="py-20 px-8 text-center border-b-2 border-[#deaf5c]/20 bg-[#5c141d]/30">
+              <section className="py-24 px-8 text-center border-b-2 border-[#deaf5c]/20 relative z-10 overflow-hidden">
+                <div className="absolute inset-0 bg-[#3a0d11]/60 backdrop-blur-sm -z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="space-y-6 max-w-sm mx-auto"
                 >
-                  <Quote className="mx-auto text-[#deaf5c]/50" size={32} />
-                  <p className="text-sm leading-relaxed italic text-[#f9f5f0]/90">
+                  <Quote className="mx-auto text-[#deaf5c]/60" size={32} />
+                  <p className="text-base leading-relaxed italic text-[#f9f5f0] drop-shadow-md font-medium">
                     &quot;Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya...&quot;
                   </p>
-                  <h4 className="font-serif text-[#deaf5c]">QS. Ar-Rum: 21</h4>
+                  <h4 className="font-serif text-[#deaf5c] text-lg drop-shadow-lg">QS. Ar-Rum: 21</h4>
                 </motion.div>
               </section>
 
