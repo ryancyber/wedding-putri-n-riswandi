@@ -131,7 +131,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#3a0d11] text-[#deaf5c] selection:bg-[#deaf5c] selection:text-[#3a0d11] flex justify-center relative overflow-hidden">
       {/* Hidden Audio Element */}
       <audio ref={audioRef} loop>
-        <source src="/wedding-next/De Umelo Ko Tania Idi - Dianty Oslan ( Cover Music Video ).mp3" type="audio/mpeg" />
+        <source src="/wedding-next/De Umelo Ko Tania Idi - Dianty Oslan ( Cover Music Video ) (mp3cut.net) (1).mp3" type="audio/mpeg" />
       </audio>
 
       {/* Global Background Layer */}
