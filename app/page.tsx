@@ -38,6 +38,21 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showGift, setShowGift] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [guestName, setGuestName] = useState("Tamu Undangan");
+
+  useEffect(() => {
+    // Ambil nama dari URL parameter ?to=nama-tamu
+    const params = new URLSearchParams(window.location.search);
+    const to = params.get("to");
+    if (to) {
+      // Ganti - atau _ dengan spasi dan capitalize kata-katanya
+      const formattedName = to.replace(/[-_]/g, " ")
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+      setGuestName(formattedName);
+    }
+  }, []);
 
   useEffect(() => {
     const targetDate = new Date("2026-04-04T09:00:00").getTime();
@@ -258,9 +273,11 @@ export default function Home() {
                       transition={{ delay: 0.2 }}
                       className="space-y-8"
                     >
-                      <div className="space-y-1">
-                        <p className="text-sm tracking-wide text-[#f3f4f6]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                        <p className="text-[10px] italic text-[#f3f4f6]/70">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                      <div className="space-y-4">
+                        <p className="text-sm tracking-wide text-[#f3f4f6]">Kepada Bapak/Ibu/Saudara/i</p>
+                        <h2 className="text-2xl font-serif text-[#deaf5c] drop-shadow-md">{guestName}</h2>
+                        <p className="text-sm text-[#f3f4f6]/80 italic">Di Tempat</p>
+                        <p className="text-[10px] italic text-[#f3f4f6]/70 pb-4">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
                       </div>
 
                       <button 
